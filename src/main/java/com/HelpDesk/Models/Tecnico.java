@@ -1,8 +1,9 @@
 package com.HelpDesk.Models;
 
-import jakarta.persistence.Entity;
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity
 public class Tecnico extends Pessoa {
 
+    @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
 }

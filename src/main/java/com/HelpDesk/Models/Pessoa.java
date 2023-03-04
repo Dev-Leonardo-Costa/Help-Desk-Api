@@ -2,22 +2,20 @@ package com.HelpDesk.Models;
 
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
-@Builder
+
 @Getter
 @Setter
-@RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Pessoa implements Serializable {
 
@@ -36,6 +34,7 @@ public class Pessoa implements Serializable {
     @Column(unique = true)
     private String email;
 
+    @Column(nullable = false)
     private String senha;
 
     @ElementCollection(fetch = FetchType.EAGER)
@@ -44,5 +43,12 @@ public class Pessoa implements Serializable {
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao = LocalDate.now();
+
+    public Pessoa(){
+        addPerfil(Perfil.CLIENTE);
+    }
+    public void addPerfil(Perfil perfil){
+        this.perfis.add(perfil.getCodigo());
+    }
 
 }
