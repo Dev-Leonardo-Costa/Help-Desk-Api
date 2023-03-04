@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Propiedade {
+public enum Prioridade {
 
     BAIXA(0, "BAIXA"),
     MEDIA(1, "MEDIA"),
@@ -14,12 +14,12 @@ public enum Propiedade {
     private final Integer codigo;
     private final String descricao;
 
-    public static Propiedade toEnum(Integer cod){
+    public static Prioridade toEnum(Integer cod){
         if (cod == null){
             return null;
         }
 
-        for (Propiedade x : Propiedade.values()){
+        for (Prioridade x : Prioridade.values()){
             if (cod.equals(x.getCodigo())){
                 return x;
             }
