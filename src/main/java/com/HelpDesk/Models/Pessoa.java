@@ -44,10 +44,10 @@ public class Pessoa implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriacao = LocalDate.now();
 
-    public Pessoa(){
+    public Pessoa() {
         addPerfil(Perfil.CLIENTE);
     }
-    public void addPerfil(Perfil perfil){
+    public void addPerfil(Perfil perfil) {
         this.perfis.add(perfil.getCodigo());
     }
 
