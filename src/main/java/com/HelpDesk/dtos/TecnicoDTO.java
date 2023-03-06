@@ -1,16 +1,39 @@
 package com.HelpDesk.dtos;
 
+import com.HelpDesk.Models.Pessoa;
+import com.HelpDesk.Models.Tecnico;
+import com.HelpDesk.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-public class TecnicoDTO {
+public class TecnicoDTO implements Serializable {
 
+    private static final long serialVersion = 1L;
     protected Long id;
     protected String nome;
     protected String cpf;
     protected String email;
     protected String senha;
-    protected Integer perfis;
-    protected LocalDate dataCriacao;
+    protected Set<Integer> perfis = new HashSet<>();
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    protected LocalDate dataCriacao = LocalDate.now();
+
+    public TecnicoDTO(){
+    }
+    public TecnicoDTO(Tecnico obj) {
+        this.id = obj.getId();
+        this.nome = obj.getNome();
+        this.cpf = obj.getCpf();
+        this.email = obj.getEmail();
+        this.senha = obj.getSenha();
+        this.perfis = obj.getPerfis().stream().map(Perfil::getCodigo).collect(Collectors.toSet());
+        this.dataCriacao = obj.getDataCriacao();
+    }
 
     public Long getId() {
         return id;
@@ -52,12 +75,12 @@ public class TecnicoDTO {
         this.senha = senha;
     }
 
-    public Integer getPerfis() {
-        return perfis;
+    public Set<Perfil> getPerfis() {
+         return perfis.stream().map(Perfil::toEnum).collect(Collectors.toSet());
     }
 
-    public void setPerfis(Integer perfis) {
-        this.perfis = perfis;
+    public void addPerfil(Perfil perfil) {
+        this.perfis.add(perfil.getCodigo());
     }
 
     public LocalDate getDataCriacao() {
