@@ -1,6 +1,5 @@
 package com.HelpDesk.dtos;
 
-import com.HelpDesk.Models.Pessoa;
 import com.HelpDesk.Models.Tecnico;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
