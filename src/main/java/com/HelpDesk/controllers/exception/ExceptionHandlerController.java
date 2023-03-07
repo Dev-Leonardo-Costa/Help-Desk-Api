@@ -17,7 +17,7 @@ public class ExceptionHandlerController {
     public ResponseEntity<StanderError> objectNotFoundException(ObjectExceptionHandler ex, HttpServletRequest request) {
 
         StanderError error = new StanderError(System.currentTimeMillis(),
-                HttpStatus.NOT_FOUND.value(), "Recurso não encontrado!", request.getRequestURI(),ex.getMessage());
+                HttpStatus.NOT_FOUND.value(), "Recurso não encontrado!", request.getRequestURI(), ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
