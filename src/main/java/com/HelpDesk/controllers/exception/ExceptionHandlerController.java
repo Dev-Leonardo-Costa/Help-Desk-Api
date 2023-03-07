@@ -1,8 +1,7 @@
 package com.HelpDesk.controllers.exception;
 
-import com.HelpDesk.services.exceptions.ObjectExceptionHandler;
-import com.HelpDesk.services.exceptions.StanderError;
-import org.springframework.http.HttpHeaders;
+import com.HelpDesk.exceptions.ObjectExceptionHandler;
+import com.HelpDesk.exceptions.StanderError;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

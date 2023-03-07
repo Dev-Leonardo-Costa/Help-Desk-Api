@@ -1,4 +1,4 @@
-package com.HelpDesk.services.exceptions;
+package com.HelpDesk.exceptions;
 
 public class StanderError {
 
