@@ -10,12 +10,12 @@ public class StanderError {
 
     public StanderError(){}
 
-    public StanderError(Long timestamp, Integer status, String error, String path, String message) {
+    public StanderError(Long timestamp, Integer status, String error, String message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
-        this.path = path;
         this.message = message;
+        this.path = path;
     }
 
     public Long getTimestamp() {
