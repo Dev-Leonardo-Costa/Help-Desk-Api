@@ -1,5 +1,6 @@
 package com.HelpDesk.controllers.exception;
 
+import com.HelpDesk.exceptions.DataIntegrityViolationException;
 import com.HelpDesk.exceptions.ObjectExceptionHandler;
 import com.HelpDesk.exceptions.StanderError;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,15 @@ public class ExceptionHandlerController {
 
         StanderError error = new StanderError(System.currentTimeMillis(),
                 HttpStatus.NOT_FOUND.value(), "Recurso não encontrado!", request.getRequestURI(), ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<StanderError> dataIntegrityViolationException(DataIntegrityViolationException ex, HttpServletRequest request) {
+
+        StanderError error = new StanderError(System.currentTimeMillis(),
+                HttpStatus.NOT_FOUND.value(), "Recurso já cadastrado!", request.getRequestURI(), ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
