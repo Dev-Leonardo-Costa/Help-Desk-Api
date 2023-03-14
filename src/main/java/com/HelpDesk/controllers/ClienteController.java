@@ -1,13 +1,8 @@
 package com.HelpDesk.controllers;
 
 import com.HelpDesk.Models.Cliente;
-import com.HelpDesk.Models.Tecnico;
-import com.HelpDesk.config.modelmapper.assembler.TecnicoDTOAssembler;
-import com.HelpDesk.config.modelmapper.assembler.TecnicoDTODissembler;
-import com.HelpDesk.dtos.tecnico.TecnicoDTO;
-import com.HelpDesk.dtos.tecnico.ClienteDTO;
+import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.services.ClienteService;
-import com.HelpDesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

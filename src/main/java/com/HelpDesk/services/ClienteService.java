@@ -2,14 +2,11 @@ package com.HelpDesk.services;
 
 import com.HelpDesk.Models.Cliente;
 import com.HelpDesk.Models.Pessoa;
-import com.HelpDesk.Models.Tecnico;
-import com.HelpDesk.dtos.tecnico.ClienteDTO;
-import com.HelpDesk.dtos.tecnico.TecnicoDTO;
+import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.exceptions.DataIntegrityViolationException;
 import com.HelpDesk.exceptions.ObjectExceptionHandler;
 import com.HelpDesk.repositories.ClienteRepository;
 import com.HelpDesk.repositories.PessoaRepository;
-import com.HelpDesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,9 @@
 package com.HelpDesk.Models;
 
 
-import com.HelpDesk.dtos.tecnico.ClienteDTO;
-import com.HelpDesk.dtos.tecnico.TecnicoDTO;
+import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
