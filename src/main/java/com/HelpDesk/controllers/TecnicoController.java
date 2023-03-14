@@ -15,6 +15,10 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoController {
@@ -60,6 +64,4 @@ public class TecnicoController {
         service.deleteObj(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }

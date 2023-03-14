@@ -16,6 +16,7 @@ import java.util.Optional;
 @Service
 public class TecnicoService {
 
+
     @Autowired
     private TecnicoRepository repository;
 
@@ -64,5 +65,9 @@ public class TecnicoService {
 
     public Tecnico seekOrFail(Long id) {
         return repository.findById(id).orElseThrow(() -> new ObjectExceptionHandler(id));
+    }
+
+    public List<Tecnico> listAllObj(){
+        return repository.findAll();
     }
 }
