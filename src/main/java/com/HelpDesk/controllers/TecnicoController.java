@@ -49,4 +49,11 @@ public class TecnicoController {
         return ResponseEntity.created(uri).build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<TecnicoDTO> update(@PathVariable Long id, @Valid @RequestBody TecnicoDTO objDTO){
+        Tecnico obj = service.update(id, objDTO);
+        return ResponseEntity.ok().body(new TecnicoDTO(obj));
+    }
+
+
 }
