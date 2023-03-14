@@ -1,5 +1,6 @@
 package com.HelpDesk.dtos.tecnico;
 
+import com.HelpDesk.Models.Cliente;
 import com.HelpDesk.Models.Tecnico;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -11,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class TecnicoDTO implements Serializable {
+public class ClienteDTO implements Serializable {
 
     private static final long serialVersion = 1L;
     protected Long id;
@@ -27,10 +28,10 @@ public class TecnicoDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
-    public TecnicoDTO(){
+    public ClienteDTO(){
         addPerfil(Perfil.CLIENTE);
     }
-    public TecnicoDTO(Tecnico obj) {
+    public ClienteDTO(Cliente obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
@@ -40,7 +41,7 @@ public class TecnicoDTO implements Serializable {
         this.dataCriacao = obj.getDataCriacao();
     }
 
-    public void Tecnico(TecnicoDTO obj) {
+    public void Cliente(ClienteDTO obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
