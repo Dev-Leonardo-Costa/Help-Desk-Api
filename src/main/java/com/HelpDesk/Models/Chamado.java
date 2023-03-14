@@ -3,10 +3,16 @@ package com.HelpDesk.Models;
 import com.HelpDesk.enums.Prioridade;
 import com.HelpDesk.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 public class Chamado {
 
@@ -52,59 +58,12 @@ public class Chamado {
         this.cliente = cliente;
     }
 
-    public Long getId() {
-        return id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Chamado chamado = (Chamado) o;
+        return getId() != null && Objects.equals(getId(), chamado.getId());
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getObservacao() {
-        return observacao;
-    }
-
-    public void setObservacao(String observacao) {
-        this.observacao = observacao;
-    }
-
-    public Prioridade getPrioridade() {
-        return prioridade;
-    }
-
-    public void setPrioridade(Prioridade prioridade) {
-        this.prioridade = prioridade;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
-    public Tecnico getTecnico() {
-        return tecnico;
-    }
-
-    public void setTecnico(Tecnico tecnico) {
-        this.tecnico = tecnico;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 }

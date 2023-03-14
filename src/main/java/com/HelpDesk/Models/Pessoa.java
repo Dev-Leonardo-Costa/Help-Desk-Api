@@ -2,6 +2,9 @@ package com.HelpDesk.Models;
 
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,6 +25,7 @@ public abstract class Pessoa implements Serializable {
 
     protected String nome;
 
+    @CPF
     @Column(unique = true)
     protected String cpf;
 
@@ -49,6 +53,13 @@ public abstract class Pessoa implements Serializable {
         this.email = email;
         this.senha = senha;
         addPerfil(Perfil.CLIENTE);
+    }
+
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(Perfil::toEnum).collect(Collectors.toSet());
+    }
+    public void addPerfil(Perfil perfil) {
+        this.perfis.add(perfil.getCodigo());
     }
 
     public Long getId() {
@@ -91,15 +102,10 @@ public abstract class Pessoa implements Serializable {
         this.senha = senha;
     }
 
-    public Set<Perfil> getPerfis() {
-        return perfis.stream().map(Perfil::toEnum).collect(Collectors.toSet());
-    }
-    public void addPerfil(Perfil perfil) {
-        this.perfis.add(perfil.getCodigo());
-    }
     public LocalDate getDataCriacao() {
         return dataCriacao;
     }
+
     public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }

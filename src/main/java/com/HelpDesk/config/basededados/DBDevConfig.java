@@ -1,4 +1,4 @@
-package com.HelpDesk.config;
+package com.HelpDesk.config.basededados;
 
 import com.HelpDesk.services.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
