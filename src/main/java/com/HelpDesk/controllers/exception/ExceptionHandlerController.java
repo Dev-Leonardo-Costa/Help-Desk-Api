@@ -28,7 +28,7 @@ public class ExceptionHandlerController {
     public ResponseEntity<StanderError> dataIntegrityViolationException(DataIntegrityViolationException ex, HttpServletRequest request) {
 
         StanderError error = new StanderError(System.currentTimeMillis(),
-                HttpStatus.NOT_FOUND.value(), "Recurso já cadastrado!", request.getRequestURI(), ex.getMessage());
+                HttpStatus.NOT_FOUND.value(), "Violação de dados", request.getRequestURI(), ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
