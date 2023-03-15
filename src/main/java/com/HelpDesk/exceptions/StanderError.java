@@ -1,7 +1,6 @@
 package com.HelpDesk.exceptions;
 
 public class StanderError {
-
     private Long timestamp;
     private Integer status;
     private String error;

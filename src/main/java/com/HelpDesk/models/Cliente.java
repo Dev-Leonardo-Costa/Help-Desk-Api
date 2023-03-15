@@ -1,6 +1,7 @@
-package com.HelpDesk.Models;
+package com.HelpDesk.models;
 
-import com.HelpDesk.dtos.tecnico.TecnicoDTO;
+
+import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -11,21 +12,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-public class Tecnico extends Pessoa {
+public class Cliente extends Pessoa {
 
     private static final long serialVersion = 1L;
+
     @JsonIgnore
-    @OneToMany(mappedBy = "tecnico")
+    @OneToMany(mappedBy = "cliente")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Tecnico() {
+    public Cliente() {
+        addPerfil(Perfil.CLIENTE);
     }
-
-    public Tecnico(Long id, String nome, String cpf, String email, String senha) {
-        super(id, nome, cpf, email, senha);
-    }
-
-    public Tecnico(TecnicoDTO obj) {
+    public Cliente(ClienteDTO obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
@@ -33,6 +31,10 @@ public class Tecnico extends Pessoa {
         this.senha = obj.getSenha();
         this.perfis = obj.getPerfis().stream().map(Perfil::getCodigo).collect(Collectors.toSet());
         this.dataCriacao = obj.getDataCriacao();
+    }
+
+    public Cliente(Long id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
     }
 
     public List<Chamado> getChamados() {

@@ -1,6 +1,6 @@
 package com.HelpDesk.controllers;
 
-import com.HelpDesk.Models.Cliente;
+import com.HelpDesk.models.Cliente;
 import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;

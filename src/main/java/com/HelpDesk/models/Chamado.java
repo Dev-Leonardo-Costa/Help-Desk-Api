@@ -1,4 +1,4 @@
-package com.HelpDesk.Models;
+package com.HelpDesk.models;
 
 import com.HelpDesk.enums.Prioridade;
 import com.HelpDesk.enums.Status;
@@ -61,9 +61,12 @@ public class Chamado {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Chamado chamado = (Chamado) o;
-        return getId() != null && Objects.equals(getId(), chamado.getId());
+        if (!(o instanceof Chamado chamado)) return false;
+        return id.equals(chamado.id);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

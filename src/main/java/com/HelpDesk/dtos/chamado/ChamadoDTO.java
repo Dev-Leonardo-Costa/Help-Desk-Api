@@ -1,10 +1,11 @@
 package com.HelpDesk.dtos.chamado;
 
-import com.HelpDesk.Models.Chamado;
+import com.HelpDesk.models.Chamado;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Getter
@@ -12,10 +13,14 @@ import java.time.LocalDate;
 public class ChamadoDTO {
 
     private Long id;
+    @NotBlank(message = "O campo TITULO é requerido!")
     private String titulo;
-
+    @NotBlank(message = "O campo OBSERVAÇÂO é requerido!")
     private String observacao;
+    @NotBlank(message = "O campo PRIORIDADE é requerido!")
     private Integer prioridade;
+
+    @NotBlank(message = "O campo STATUS é requerido!")
     private Integer status;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -24,8 +29,10 @@ public class ChamadoDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento = LocalDate.now();
 
+    @NotBlank(message = "O campo TECNICO é requerido!")
     private Long tecnico;
 
+    @NotBlank(message = "O campo CLIENTE é requerido!")
     private Long cliente;
     private String nomeTecnico;
     private String nomeCliente;

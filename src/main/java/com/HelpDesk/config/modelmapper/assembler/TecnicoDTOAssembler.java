@@ -1,6 +1,6 @@
 package com.HelpDesk.config.modelmapper.assembler;
 
-import com.HelpDesk.Models.Tecnico;
+import com.HelpDesk.models.Tecnico;
 import com.HelpDesk.dtos.tecnico.TecnicoDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

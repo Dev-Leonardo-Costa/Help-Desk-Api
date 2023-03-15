@@ -1,6 +1,6 @@
 package com.HelpDesk.repositories;
 
-import com.HelpDesk.Models.Pessoa;
+import com.HelpDesk.models.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

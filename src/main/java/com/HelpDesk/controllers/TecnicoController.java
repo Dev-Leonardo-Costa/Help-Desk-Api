@@ -1,6 +1,6 @@
 package com.HelpDesk.controllers;
 
-import com.HelpDesk.Models.Tecnico;
+import com.HelpDesk.models.Tecnico;
 import com.HelpDesk.config.modelmapper.assembler.TecnicoDTOAssembler;
 import com.HelpDesk.config.modelmapper.assembler.TecnicoDTODissembler;
 import com.HelpDesk.dtos.tecnico.TecnicoDTO;

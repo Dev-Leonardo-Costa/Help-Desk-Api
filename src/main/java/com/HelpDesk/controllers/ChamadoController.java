@@ -1,21 +1,19 @@
 package com.HelpDesk.controllers;
 
-import com.HelpDesk.Models.Chamado;
+import com.HelpDesk.models.Chamado;
 import com.HelpDesk.dtos.chamado.ChamadoDTO;
 import com.HelpDesk.services.ChamadoService;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/chamados")
+@RequestMapping(value = "/chamados")
 public class ChamadoController {
 
     @Autowired
@@ -33,4 +31,18 @@ public class ChamadoController {
         List<ChamadoDTO> listDTO = list.stream().map(ChamadoDTO::new).toList();
         return ResponseEntity.ok().body(listDTO);
     }
+
+    @PostMapping
+    public ResponseEntity<ChamadoDTO> create(@Valid @RequestBody Chamado obj) {
+        Chamado newObj = service.create(obj);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ChamadoDTO> update(@PathVariable Long id, @Valid @RequestBody ChamadoDTO objDTO) {
+        Chamado newObj = service.update(id, objDTO);
+        return ResponseEntity.ok().body(new ChamadoDTO(newObj));
+    }
+
 }

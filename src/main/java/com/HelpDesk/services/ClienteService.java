@@ -1,7 +1,7 @@
 package com.HelpDesk.services;
 
-import com.HelpDesk.Models.Cliente;
-import com.HelpDesk.Models.Pessoa;
+import com.HelpDesk.models.Cliente;
+import com.HelpDesk.models.Pessoa;
 import com.HelpDesk.dtos.cliente.ClienteDTO;
 import com.HelpDesk.exceptions.DataIntegrityViolationException;
 import com.HelpDesk.exceptions.ObjectExceptionHandler;

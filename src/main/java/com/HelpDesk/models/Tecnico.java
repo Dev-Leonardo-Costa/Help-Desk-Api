@@ -1,9 +1,9 @@
-package com.HelpDesk.Models;
+package com.HelpDesk.models;
 
-
-import com.HelpDesk.dtos.cliente.ClienteDTO;
+import com.HelpDesk.dtos.tecnico.TecnicoDTO;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -11,19 +11,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Builder
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity
-public class Cliente extends Pessoa {
+public class Tecnico extends Pessoa {
 
     private static final long serialVersion = 1L;
-
     @JsonIgnore
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
-    public Cliente() {
+    public Tecnico() {
         addPerfil(Perfil.CLIENTE);
     }
-    public Cliente(ClienteDTO obj) {
+
+    public Tecnico(Long id, String nome, String cpf, String email, String senha) {
+        super(id, nome, cpf, email, senha);
+        addPerfil(Perfil.CLIENTE);
+    }
+
+    public Tecnico(TecnicoDTO obj) {
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
@@ -33,15 +42,4 @@ public class Cliente extends Pessoa {
         this.dataCriacao = obj.getDataCriacao();
     }
 
-    public Cliente(Long id, String nome, String cpf, String email, String senha) {
-        super(id, nome, cpf, email, senha);
-    }
-
-    public List<Chamado> getChamados() {
-        return chamados;
-    }
-
-    public void setChamados(List<Chamado> chamados) {
-        this.chamados = chamados;
-    }
 }

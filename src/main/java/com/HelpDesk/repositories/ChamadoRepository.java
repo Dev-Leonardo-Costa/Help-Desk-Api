@@ -1,6 +1,6 @@
 package com.HelpDesk.repositories;
 
-import com.HelpDesk.Models.Chamado;
+import com.HelpDesk.models.Chamado;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

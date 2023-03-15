@@ -1,6 +1,6 @@
 package com.HelpDesk.dtos.tecnico;
 
-import com.HelpDesk.Models.Tecnico;
+import com.HelpDesk.models.Tecnico;
 import com.HelpDesk.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -28,7 +28,7 @@ public class TecnicoDTO implements Serializable {
     protected LocalDate dataCriacao = LocalDate.now();
 
     public TecnicoDTO(){
-        addPerfil(Perfil.CLIENTE);
+        addPerfil(Perfil.ADMIN);
     }
     public TecnicoDTO(Tecnico obj) {
         this.id = obj.getId();

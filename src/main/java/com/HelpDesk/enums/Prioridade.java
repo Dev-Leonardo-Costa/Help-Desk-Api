@@ -2,10 +2,7 @@ package com.HelpDesk.enums;
 
 public enum Prioridade {
 
-    BAIXA(0, "BAIXA"),
-    MEDIA(1, "MEDIA"),
-    ALTA(2, "ALTA");
-
+    BAIXA(0, "BAIXA"), MEDIA(1, "MEDIA"), ALTA(2, "ALTA");
     private final Integer codigo;
     private final String descricao;
 
